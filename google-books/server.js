@@ -20,10 +20,12 @@ app.use(routes);
 mongoose.connect(
   process.env.MONGODB_URI || "mongo://localhost/google",
   {
-    useCreateIndex: true,
-    useNewUrlParser: true
-  }
-);
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+  );
 
 // Start the API server
 app.listen(PORT, () =>
